@@ -12,6 +12,12 @@ app.get('/', (req, res) => {
   });
 })
 
+app.get('/two', (req, res) => {
+  Twig.renderFile('template-2.twig', {}, (err, html) => {
+    res.send(html);
+  });
+})
+
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 })
