@@ -7,14 +7,16 @@ const port = 3000;
 Twig.cache(false);
 
 app.get('/', (req, res) => {
-  Twig.renderFile('template.twig', { baked_good: 'cupcake' }, (err, html) => {
-    res.send(html);
-  });
-})
-
-app.get('/two', (req, res) => {
-  Twig.renderFile('template-2.twig', {}, (err, html) => {
-    res.send(html);
+  res.render('css.twig', {
+    message: 'Hello World',
+    design: {
+      type: 'button',
+      background: '#000',
+      background_hover: '#eee',
+      typography: {
+        text_align: 'center'
+      }
+    }
   });
 })
 

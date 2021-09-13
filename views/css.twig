@@ -1,0 +1,32 @@
+{% import _self as macros %}
+
+{% macro typography(typography) %}
+  text-align: {{ typography.text_align }};
+{% endmacro %}
+
+{% macro backgroundColor(color) %}
+  background-color: {{ color }};
+{% endmacro %}
+
+{% macro buttonOrLinkCss(style, selector) %}
+    {{ selector }} {
+        {{ macros.typography(style.typography) }}
+
+        {# Start - The code is not rendered #}
+        {% if style.type == 'text' %}
+            text-decoration: none;
+        {% elseif style.type == 'button' %}
+            {{ macros.backgroundColor(style.background) }}
+        {% endif %}
+        {# /End #}
+    }
+
+    {{ selector }}:hover {
+        {{ macros.backgroundColor(style.background_hover) }}
+    }
+{% endmacro %}
+
+
+{# ----- #}
+
+<pre>{{ macros.buttonOrLinkCss(design, '.example-selector') }}</pre>
