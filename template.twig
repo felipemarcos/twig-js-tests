@@ -1,0 +1,17 @@
+{% import _self as _self %}
+
+{% macro welcome(name) %}
+    <p>Welcome, {{ name }}!</p>
+{% endmacro %}
+
+
+{% set author = 'Albert Einstein' %}
+
+<p>The {{ baked_good }} is a lie. {{ baked_good }}</p>
+<p>- {{ author }}</p>
+<p>- {{ author }}</p>
+<p>- {{ author }}</p>
+
+{{ _self.welcome(author) }}
+
+{{ author }}
